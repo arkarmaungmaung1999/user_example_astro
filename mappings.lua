@@ -14,9 +14,9 @@ return {
     --   desc = "Next buffer",
     -- },
     -- H = {
-    --   function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
-    --   desc = "Previous buffer",
-    -- },
+   --  function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
+   --    desc = "Previous buffer",
+   -- },
 
     -- mappings seen under group name "Buffer"
     ["<leader>bD"] = {
@@ -32,6 +32,13 @@ return {
     ["<leader>b"] = { name = "Buffers" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+
+
+    ["<C-Up>"] = false,
+    ["<C-Down>"] = false,
+    ["<C-Left>"] = false,
+    ["<C-Right>"] = false,
+    -- ["<leader>h"] = false
   },
   t = {
     -- setting a mapping to false will disable it
