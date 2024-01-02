@@ -17,11 +17,7 @@ return {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
-    config = function()
-      require("nvim-surround").setup {
-        -- Configuration here, or leave empty to use defaults
-      }
-    end,
+    config = function() require("nvim-surround").setup() end,
   },
   {
     "preservim/tagbar",
@@ -35,11 +31,13 @@ return {
   },
   {
     "Wansmer/treesj",
-    -- keys = {
-    --   {
-    --     -- "<leader>m", ":TSJToggle<cr>", desc = "Toggle TS"
-    --   }
-    -- },
+    keys = {
+      {
+        "<leader>m",
+        ":TSJToggle<cr>",
+        desc = "Toggle TS",
+      },
+    },
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     cmd = { "TSJToggle", "TSJSplit", "TSJJoin" },
     opts = { use_default_keymaps = false },
@@ -149,5 +147,22 @@ return {
         -- e.g. 80 to position at column 80, see `:h nvim_buf_set_extmark()`
       }
     end,
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      {
+        "nvim-telescope/telescope-live-grep-args.nvim",
+        -- This will not install any breaking changes.
+        -- For major updates, this must be adjusted manually.
+        version = "^1.0.0",
+      },
+    },
+    -- keys = {
+    --   "<leader>fl",
+    --   ":lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>",
+    --   desc = "Open live grep args",
+    -- },
+    config = function() require("telescope").load_extension "live_grep_args" end,
   },
 }
